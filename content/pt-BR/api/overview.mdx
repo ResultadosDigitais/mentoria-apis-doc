@@ -1,0 +1,45 @@
+---
+title: "Visão geral"
+description: ""
+---
+
+## Autenticação
+
+Todas as solicitações para a API do MentorIA devem incluir um cabeçalho `Authorization`
+do tipo `Bearer` com sua chave de API. Se você estiver usando uma SDK como cliente, você
+deve definir a chave de API ao construir um cliente, e então o SDK enviará o cabeçalho
+em seu nome com cada solicitação. Se estiver integrando diretamente com a API, você
+precisará enviar este cabeçalho por conta própria.
+
+Para obter sua chave de API, acesse [**Contas -> Configurações -> Chaves de API**](https://contas.rdstationmentoria.com.br/settings/keys)
+e gere uma nova chave. Armazene-a em um local seguro, pois ela não será mais apresentada
+no console.
+
+## Playground
+
+Você pode usar o [Playground](/api-reference) para testar a API no navegador e visualizar
+detalhes dos recursos disponíveis.
+
+## Tipos de conteúdo
+
+A API do MentorIA sempre aceita JSON no corpo das solicitações e retorna JSON no corpo
+das respostas. Você precisará enviar o cabeçalho `Content-Type: application/json` nas
+solicitações. Se você estiver usando SDKs, isso será tratado automaticamente.
+
+## Exemplos
+
+<Tabs>
+  <Tab title="cURL">
+    ```sh
+    curl https://api.conteudo.restationmentoria.com.br/rest/completions \
+     --header "authorization: $MENTORIA_API_KEY" \
+     --header "content-type: application/json" \
+     --data \
+      '{
+          "messages": [
+              {"role": "user", "content": "Hello, world"}
+          ]
+      }'
+    ```
+  </Tab>
+</Tabs>

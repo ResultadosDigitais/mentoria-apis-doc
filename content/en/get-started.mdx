@@ -1,0 +1,155 @@
+---
+title: 'Quick Start'
+description: 'Follow this 10-minute tutorial to understand how the completions endpoint works'
+---
+
+## 🚀 Introduction
+
+This step-by-step guide shows how to call the **POST /completions** endpoint, interpret the response, and integrate it into your application.
+
+<Tip>
+  For more code examples, check out the [POST /completions endpoint reference](/api-reference/completions/post-completions).
+</Tip>
+
+---
+
+## 🔧 Prerequisites
+
+Before you start, you will need:
+
+<AccordionGroup>
+  <Accordion icon="key" title="Get your API key">
+    Go to **Accounts -> Settings -> API Keys** and copy your key — it will be used for authentication via Bearer Token.
+  </Accordion>
+  <Accordion icon="rectangle-terminal" title="Choose an HTTP client">
+    You can use **Postman**, **Insomnia**, or **cURL** (example below). Make sure the client is installed and properly configured.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## 📂 1. Making Your First API Call
+
+The [**POST /completions**](/api-reference/completions/post-completions) endpoint generates text based on a prompt. See an example request below:
+
+```bash
+curl --request POST \
+  --url https://api.conteudo.rdstationmentoria.com.br/rest/completions \
+  --header "Authorization: Bearer YOUR_API_KEY" \
+  --header "Content-Type: application/json" \
+  --data '{
+    "model": "gpt-3.5-turbo",
+    "prompt": "Describe the planet Jupiter in 2 sentences.",
+    "max_tokens": 60,
+    "temperature": 0.5
+  }'
+```
+
+<Tip>
+  If an error occurs, check if your key is correct and if the endpoint is accessible.
+</Tip>
+
+## ✅ 2. Example Response
+
+A typical response (HTTP 200) might be:
+
+```json
+{
+  "completionId": "cpt-abc123",
+  "output": {
+    "role": "assistant",
+    "content": "Jupiter is the largest planet in the solar system, known for its Great Red Spot, a massive storm. It has a thin ring and dozens of moons, including Io and Europa.",
+    "toolCall": {}
+  },
+  "userId": "user-abc123",
+  "workspaceId": "wpc-xyz123",
+  "createdAt": "2025-07-01T10:05:00.000Z",
+  "updatedAt": "2025-07-01T10:05:00.000Z"
+}
+```
+
+## 🛠️ 3. Using `tool_call` with a Custom Function
+
+You can also instruct the model to **invoke tools (functions)** in a structured way using the `toolChoice` field and providing a list of `tools`. This is useful when you want the model to trigger a specific functionality, such as fetching information or executing an external action based on user input.
+
+See an example:
+
+```bash
+curl --request POST \
+  --url https://api.conteudo.rdstationmentoria.com.br/rest/completions \
+  --header "Authorization: Bearer YOUR_API_KEY" \
+  --header "Content-Type: application/json" \
+  --data '{
+    "messages": [
+      {
+        "role": "user",
+        "content": "I want to know the weather forecast for tomorrow in São Paulo."
+      }
+    ],
+    "tools": [
+      {
+        "type": "function",
+        "function": {
+          "name": "fetch_weather_forecast",
+          "description": "Fetches the current weather forecast for a city",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "city": {
+                "type": "string",
+                "description": "City name (e.g., São Paulo)"
+              },
+              "date": {
+                "type": "string",
+                "description": "Desired date in YYYY-MM-DD format"
+              }
+            },
+            "required": ["city", "date"]
+          }
+        }
+      }
+    ],
+    "temperature": 0.7,
+    "max_tokens": 100
+  }'
+```
+
+<Tip> 
+  You can use this approach to connect the model with specific actions, such as fetching external data, calculating values, or executing custom commands. 
+</Tip>
+
+## 🧾 Example Response with `toolCall`
+
+When the model decides to use the tool, the response will include a `toolCall` field with the filled arguments:
+
+```json
+{
+  "completionId": "cpt-func789",
+  "output": {
+    "role": "assistant",
+    "toolCall": {
+      "name": "fetch_weather_forecast",
+      "arguments": {
+        "city": "São Paulo",
+        "date": "2025-07-03"
+      }
+    }
+  }
+}
+```
+
+---
+
+## 🧠 What to Do with This?
+
+Now that you have the extracted arguments, your backend can execute the actual function (`fetch_weather_forecast`) with the provided parameters. This flow allows the model to act as a natural interface for your internal functionalities.
+
+<Tip> 
+  Test this example by replacing `fetch_weather_forecast` with specific functions from your domain — such as scheduling a meeting, querying a lead, or fetching real-time data. 
+</Tip>
+
+---
+
+## 📘 Next Steps
+
+* Read the [full documentation for the POST /completions endpoint](/api-reference/completions/post-completions) to learn about all available parameters.

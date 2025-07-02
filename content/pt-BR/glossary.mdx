@@ -1,0 +1,92 @@
+---
+title: "Glossário"
+description: "Conceitos e termos-chave para saber ao ler esta documentação"
+---
+
+## Contexto
+
+Contexto refere-se à quantidade de texto que um modelo de linguagem pode consultar e
+referenciar ao gerar novo texto. Isso é diferente do grande corpus de dados em que o
+modelo de linguagem foi treinado, e representa uma “memória de trabalho” para o modelo.
+
+Uma janela de contexto maior permite que o modelo entenda e responda a prompts mais
+complexos e extensos, enquanto uma janela de contexto menor pode limitar a capacidade do
+modelo de lidar com prompts mais longos ou manter a coerência em conversas prolongadas.
+
+## Latência
+
+Latência, no contexto de IA generativa e grandes modelos de linguagem, refere-se ao tempo
+que o modelo leva para responder a um determinado prompt. É o atraso entre o envio de um
+prompt e o recebimento da saída gerada. Menor latência indica tempos de resposta mais
+rápidos, o que é crucial para aplicações em tempo real, chatbots e experiências interativas.
+Fatores que podem afetar a latência incluem o tamanho do modelo, capacidades de hardware,
+condições de rede e a complexidade do prompt e o tamanho da resposta gerada.
+
+## LLM
+
+Grandes modelos de linguagem (LLMs - Large Language Models) são modelos de linguagem de IA
+com muitos parâmetros que são capazes de realizar uma variedade de tarefas surpreendentemente
+úteis. Esses modelos são treinados em vastas quantidades de dados de texto e podem gerar
+texto semelhante ao humano, responder perguntas, resumir informações e muito mais.
+O MentorIA oferece recursos que utilizam grandes modelos de linguagem internamente e foi
+refinado e treinado para ser mais útil, honesto e inofensivo.
+
+## Pré-treinamento
+
+Pré-treinamento é o processo inicial de treinamento de modelos de linguagem em um grande
+corpus não rotulado de texto. No caso do MentorIA, modelos de linguagem autorregressivos
+são pré-treinados para prever a próxima palavra, dado o contexto anterior de texto no
+documento. Esses modelos pré-treinados não são inerentemente bons em responder perguntas
+ou seguir instruções, e frequentemente requerem habilidade profunda em engenharia de prompts
+para obter os comportamentos desejados. Fine-tuning e RLHF são usados para refinar esses
+modelos pré-treinados, tornando-os mais úteis para uma ampla gama de tarefas.
+
+## RAG (Geração aumentada por recuperação)
+
+Geração aumentada por recuperação (RAG - Retrieval Augmented Generation) é uma técnica que
+combina recuperação de informações com geração de modelo de linguagem para melhorar a
+precisão e relevância do texto gerado, e para melhor fundamentar a resposta do modelo em
+evidências.
+
+No RAG, um modelo de linguagem é aumentado com uma base de conhecimento externa
+ou um conjunto de documentos que é passado para a janela de contexto. Os dados são
+recuperados em tempo de execução quando uma consulta é enviada ao modelo, embora o próprio
+modelo não necessariamente recupere os dados podemos fazê-lo com uso de ferramentas e uma
+função de recuperação. Ao gerar texto, informações relevantes primeiro devem ser recuperadas
+da base de conhecimento com base no prompt de entrada, e então passadas para o modelo junto
+com a consulta original. O modelo usa essas informações para orientar a saída que gera.
+Isso permite que o modelo acesse e utilize informações além de seus dados de treinamento,
+reduzindo a dependência da memorização e melhorando a precisão factual do texto gerado.
+
+RAG pode ser particularmente útil para tarefas que requerem informações atualizadas,
+conhecimento específico de domínio ou citação explícita de fontes. No entanto, a eficácia
+do RAG depende da qualidade e relevância da base de conhecimento e dos dados que são
+recuperados em tempo de execução.
+
+## Temperatura
+
+Temperatura é um parâmetro que controla a aleatoriedade das previsões de um modelo
+durante a geração de texto. Temperaturas mais altas levam a saídas mais criativas e
+diversas,permitindo múltiplas variações na formulação e, no caso da ficção, variação
+nas respostas também. Temperaturas mais baixas resultam em saídas mais conservadoras
+e determinísticas que se atêm às formulações e respostas mais prováveis. Ajustar a
+temperatura permite que os usuários incentivem um modelo de linguagem a explorar
+escolhas e sequências de palavras raras, incomuns ou surpreendentes, em vez de
+selecionar apenas as previsões mais prováveis.
+
+## Tokens
+
+Tokens são as menores unidades individuais de um modelo de linguagem, e podem
+corresponder a palavras, subpalavras, caracteres ou até mesmo bytes. Um token
+geralmente representa 3.5 caracteres de uma palavra, embora o número exato possa
+variar dependendo do idioma usado. Os tokens são tipicamente ocultos ao interagir
+com modelos de linguagem no nível de “texto”, mas se tornam relevantes ao examinar
+as entradas e saídas exatas de um modelo de linguagem.
+
+Quando um LLM recebe texto para avaliar, o texto (consistindo em uma série de caracteres)
+é codificado em uma série de tokens para o modelo processar. Tokens maiores permitem
+eficiência de dados durante a inferência e pré-treinamento (e são utilizados quando
+possível), enquanto tokens menores permitem que um modelo lide com palavras incomuns
+ou nunca antes vistas. A escolha do método de tokenização pode impactar o desempenho
+do modelo, o tamanho do vocabulário e a capacidade de lidar com palavras fora do
+vocabulário.
