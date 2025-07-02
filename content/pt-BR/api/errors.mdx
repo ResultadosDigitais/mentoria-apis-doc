@@ -1,0 +1,19 @@
+---
+title: "Erros"
+description: "Informações sobre códigos de erro HTTP e tratamento de erros na API do MentorIA"
+---
+
+## Erros HTTP
+
+Nossa API segue um formato previsível de códigos de erro HTTP:
+
+- 400 - `invalid_request_error`: Houve um problema com o formato da sua solicitação.
+  Também podemos usar este tipo de erro para outros códigos de status 4XX não listados abaixo.
+- 401 - `authentication_error`: Há um problema com sua chave de API.
+- 403 - `permission_error`: Sua chave de API não tem permissão para usar o recurso especificado.
+- 404 - `not_found_error`: O recurso solicitado não foi encontrado.
+- 413 - `request_too_large_error`: A solicitação excede o número máximo permitido de bytes.
+- 422 - `unprocessable_entity_error`: O conteúdo da sua solicitação é inválido.
+- 429 - `rate_limit_error`: Sua conta atingiu um limite de taxa.
+- 500 - `api_error`: Ocorreu um erro inesperado interno aos sistemas do MentorIA.
+- 529 - `overloaded_error`: A API do MentorIA está temporariamente sobrecarregada.

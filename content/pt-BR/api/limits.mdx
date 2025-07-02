@@ -1,0 +1,33 @@
+---
+title: "Limites"
+description: "Limites ao utilizar a API do MentorIA"
+---
+
+Para mitigar o uso indevido e gerenciar a capacidade em nossa API, implementamos limites
+sobre quanto uma organização pode usar a API do MentorIA.
+
+Temos dois tipos de limites:
+
+- **Limites de gastos**: estabelecem um custo mensal máximo que uma organização pode
+  incorrer pelo uso da API.
+- **Limites de taxa**: estabelecem o número máximo de solicitações de API que uma
+  organização pode fazer durante um período de tempo definido.
+
+Aplicamos limites configurados pelo serviço no nível da organização.
+
+## Sobre nossos limites
+
+- Os limites são projetados para prevenir o abuso da API, minimizando o impacto nos
+  padrões comuns de uso do cliente.
+- Os limites são definidos por tier de uso, onde cada tier está associado a um conjunto
+  diferente de limites de gastos e taxas.
+- Todos os limites descritos aqui representam o uso máximo permitido, não mínimos
+  garantidos. Esses limites destinam-se a reduzir gastos excessivos não intencionais
+  e garantir uma distribuição justa de recursos entre os usuários.
+
+## Limites de taxa
+
+Nossos limites de taxa para a API geralmente são medidos em solicitações por minuto
+(RPM). Se você exceder um dos limites de taxa, receberá um erro 429 descrevendo qual
+limite de taxa foi excedido, junto com um cabeçalho `retry-after` indicando quanto
+tempo esperar.

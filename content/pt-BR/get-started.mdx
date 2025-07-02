@@ -1,0 +1,97 @@
+---
+title: "Comece a usar"
+description: "Vamos aprender como usar a API do MentorIA "
+---
+
+## Introdução
+
+Neste exemplo, vamos pedir ao MentorIA para elaborar um poema curto.
+
+<Tip>
+  Para mais exemplos de código, confira a referência do endpoint [Criar
+  conclusão](/api-reference/completions/post-completions).
+</Tip>
+
+---
+
+## Pré-requisitos
+
+Antes de começar, você vai precisar:
+
+<AccordionGroup>
+  <Accordion icon="square-user" title="Criar uma conta no MentorIA">
+    Crie uma conta gratuita no MentorIA utilizando [este
+    link](http://contas.rdstationmentoria.com.br/).
+  </Accordion>
+  <Accordion icon="key" title="Gerar uma chave de API">
+    Acesse [**Contas -> Configurações -> Chaves de
+    API**](https://contas.rdstationmentoria.com.br/settings/keys) e gere uma
+    nova chave de API. Armazene-a em um local seguro, pois ela não será mais
+    apresentada no console.
+  </Accordion>
+  <Accordion icon="square-terminal" title="Selecionar um cliente HTTP">
+    Você pode usar [**Postman**](https://postman.com/),
+    [**Insomnia**](https://insomnia.rest/), **cURL** ou o seu cliente favorito.
+    Certifique-se de que ele esteja instalado e configurado corretamente antes
+    de continuar.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Chame a API
+
+O endpoint [**`POST /completions`**](/api-reference/completions/post-completions) gera
+uma conclusão a partir de um prompt. Veja abaixo um exemplo de solicitação:
+
+```bash
+curl --request POST \
+  --url https://api.conteudo.rdstationmentoria.com.br/rest/completions \
+  --header "Authorization: Bearer <api_key>" \
+  --header "Content-Type: application/json" \
+  --data '{
+    "system": "Você é um poeta reconhecido mundialmente. Responda apenas com poemas curtos.",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Por que o mar é salgado?"
+      }
+    ]
+  }'
+```
+
+Uma resposta típica pode ser:
+
+```json
+{
+  "completionId": "cpt-abc123",
+  "output": {
+    "role": "assistant",
+    "content": "O choro antigo da Terra
+Escorreu em rios ao chão –
+No grande ventre do mar
+Dissolveu toda paixão.
+É sal o resto da mágoa,
+É gosto do coração."
+  }
+}
+```
+
+<Tip>
+  Caso ocorra algum erro, verifique se a chave de API foi informada corretamente
+  e se você possui uma conexão estável com a internet.
+</Tip>
+
+## Próximos passos
+
+Agora que você executou sua primeira solicitação à API do MentorIA, é hora de
+explorar o que mais é possível fazer:
+
+<Columns cols={2}>
+  <Card icon="trending-up-down" title="Casos de Uso" href="/how-to/use-cases">
+    Guias de implementação completos para casos de uso comuns.
+  </Card>
+  <Card icon="workflow" title="Documentação de API" href="/api-reference">
+    Consulte a referência completa de API e conheça os recursos disponíveis.
+  </Card>
+</Columns>

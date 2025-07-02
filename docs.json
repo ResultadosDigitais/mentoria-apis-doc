@@ -8,6 +8,9 @@
     "dark": "#0B485B"
   },
   "favicon": "favicon.svg",
+  "icons": {
+    "library": "lucide"
+  },
   "navigation": {
     "languages": [
       {
@@ -16,14 +19,14 @@
         "global": {
           "anchors": [
             {
-              "anchor": "Central de ajuda",
+              "anchor": "Central de Ajuda",
               "href": "https://ajuda.rdstation.com/s/mentor-IA?language=pt_BR",
-              "icon": "book-open-cover"
+              "icon": "book-open"
             },
             {
-              "anchor": "Site",
-              "href": "https://www.rdstation.com/produtos/mentor-ia/",
-              "icon": "newspaper"
+              "anchor": "Suporte",
+              "href": "https://go.crisp.chat/chat/embed/?website_id=897d13ec-6e3a-4386-b8c0-65c5ea8bc595",
+              "icon": "headset"
             }
           ]
         },
@@ -33,32 +36,60 @@
             "icon": "book",
             "pages": [
               {
-                "group": "Começando",
+                "group": "Primeiros passos",
                 "pages": [
-                  "introduction",
-                  "quickstart"
+                  "content/pt-BR/introduction",
+                  "content/pt-BR/get-started",
+                  "content/pt-BR/glossary"
+                ]
+              },
+              {
+                "group": "Usando a API",
+                "pages": [
+                  "content/pt-BR/api/overview",
+                  "content/pt-BR/api/limits",
+                  "content/pt-BR/api/errors"
+                ]
+              },
+              {
+                "group": "Como fazer",
+                "pages": [
+                   {
+                    "group": "Casos de uso",
+                    "pages": [
+                      "content/pt-BR/how-to/use-cases"
+                    ]
+                  }
+                ]
+              },
+              {
+                "group": "Jurídico",
+                "pages": [
+                  "content/pt-BR/legal/privacy",
+                  "content/pt-BR/legal/terms"
                 ]
               }
             ]
           },
           {
-            "tab": "Contas",
-            "openapi": "https://api.contas.rdstationmentoria.com.br/rest"
+            "tab": "Conteúdo",
+            "openapi": "https://api.conteudo.rdstationmentoria.com.br/rest"
           },
           {
-            "tab": "Meu Assistente",
+            "tab": "Assistentes",
             "openapi": "https://api.meuassistente.rdstationmentoria.com.br/rest"
           },
           {
-            "tab": "Base de Conhecimento",
+            "tab": "Bases de Conhecimento",
             "openapi": "https://api.bases.rdstationmentoria.com.br/rest"
           },
           {
-            "tab": "Conteúdo",
-            "openapi": "https://api.conteudo.rdstationmentoria.com.br/rest"
+            "tab": "Contas",
+            "openapi": "https://api.contas.rdstationmentoria.com.br/rest"
           }
         ]
-      },{
+      },
+      {
         "language": "en",
         "default": false,
         "global": {
@@ -81,10 +112,10 @@
             "icon": "book",
             "pages": [
               {
-                "group": "Getting started",
+                "group": "Get started",
                 "pages": [
-                  "en/introduction",
-                  "en/quickstart"
+                  "content/en/introduction",
+                  "content/en/get-started"
                 ]
               }
             ]
@@ -116,20 +147,19 @@
   "navbar": {
     "links": [
       {
-        "label": "Support",
+        "label": "Fale conosco",
         "href": "https://go.crisp.chat/chat/embed/?website_id=897d13ec-6e3a-4386-b8c0-65c5ea8bc595"
       }
     ],
     "primary": {
       "type": "button",
-      "label": "Login",
+      "label": "Acessar",
       "href": "https://contas.rdstationmentoria.com.br/auth/login"
     }
   },
   "footer": {
     "socials": {
-      "github": "https://github.com/ResultadosDigitais/mentoria-apis-doc",
-      "linkedin": "https://www.linkedin.com/company/rdstationmentoria/",
+      "github": "https://github.com/ResultadosDigitais",
       "website": "https://www.rdstation.com/produtos/mentor-ia/"
     }
   }
