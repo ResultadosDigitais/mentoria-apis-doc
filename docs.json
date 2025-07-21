@@ -88,55 +88,6 @@
             "openapi": "https://api.contas.rdstationmentoria.com.br/rest"
           }
         ]
-      },
-      {
-        "language": "en",
-        "default": false,
-        "global": {
-          "anchors": [
-            {
-              "anchor": "Help Center",
-              "href": "https://ajuda.rdstation.com/s/mentor-IA?language=pt_BR",
-              "icon": "book-open-cover"
-            },
-            {
-              "anchor": "Blog",
-              "href": "https://www.rdstation.com/produtos/mentor-ia/",
-              "icon": "newspaper"
-            }
-          ]
-        },
-        "tabs": [
-          {
-            "tab": "Documentation",
-            "icon": "book",
-            "pages": [
-              {
-                "group": "Get started",
-                "pages": [
-                  "content/en/introduction",
-                  "content/en/get-started"
-                ]
-              }
-            ]
-          },
-          {
-            "tab": "Contas",
-            "openapi": "https://api.contas.rdstationmentoria.com.br/rest"
-          },
-          {
-            "tab": "Meu Assistente",
-            "openapi": "https://api.meuassistente.rdstationmentoria.com.br/rest"
-          },
-          {
-            "tab": "Base de Conhecimento",
-            "openapi": "https://api.bases.rdstationmentoria.com.br/rest"
-          },
-          {
-            "tab": "Conteúdo",
-            "openapi": "https://api.conteudo.rdstationmentoria.com.br/rest"
-          }
-        ]
       }
     ]
   },
